@@ -9,11 +9,13 @@ import { cn } from "@/utils/utils"
 import Logo from "./Logo"
 import MenuMobile from "./MenuMobile"
 import { useState } from "react"
+import ConfigurationMenu from "./ConfigurationMenu"
 
 const urlUser = "https://img.freepik.com/psd-gratis/3d-ilustracion-persona-gafas-sol_23-2149436188.jpg?w=740&t=st=1726106228~exp=1726106828~hmac=44002d53389c1077d2d780198d18675568d5083d31bc767a2920d1b60a250d35"
 
 export const Header = () => {
-    const [showMenuMobile, setShowMenuMobile] = useState<boolean>(false)
+    const [showMenuMobile, setShowMenuMobile] = useState<boolean>(false)    
+    const [showMenuSettings, setShowMunuSettings] = useState<boolean>(false)    
 
     return (
         <>
@@ -54,7 +56,8 @@ export const Header = () => {
                         <li>
                             <button
                                 type="button"
-                                className="bg-background text-xl w-10 h-10 flex items-center justify-center rounded-full"
+                                onClick={()=>setShowMunuSettings(true)}
+                                className={cn("bg-background text-xl w-10 h-10 flex items-center justify-center rounded-full ", showMenuSettings ? "bg-primary/30  font-medium text-white" :"")}
                             >
                                 <i className="fi fi-rr-settings"></i>
                             </button>
@@ -70,6 +73,7 @@ export const Header = () => {
                     </ul>
                 </section>
             </header>
+            <ConfigurationMenu isOpen={showMenuSettings} onClose={setShowMunuSettings}/>
             <MenuMobile isOpen={showMenuMobile} onClose={setShowMenuMobile} />
         </>
     )
