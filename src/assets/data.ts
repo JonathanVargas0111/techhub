@@ -29,6 +29,9 @@ export const menu: Menu[] = [
 
   export const categories: Category[] = [
     {
+      category: "Todos",
+    },
+    {
       category: "Teléfonos",
     },
     {
@@ -85,8 +88,8 @@ export const menu: Menu[] = [
       category: "Auriculares",
       image:
         "https://img.freepik.com/foto-gratis/auriculares-bluetooth-sobre-fondo-blanco_125540-3073.jpg?w=2000",
-      discount: 15,
-      stock: 120,
+      discount: 0,
+      stock: 0,
       price: 199.99,
       description:
         "Auriculares inalámbricos con cancelación activa de ruido y calidad de sonido superior.",
