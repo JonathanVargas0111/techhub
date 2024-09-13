@@ -11,7 +11,7 @@ interface Props {
 
 const CardProduct = ({ product }: Props) => {
 
-    const { name, image, category, description, discount, price, stock } = product
+    const { name, image, description, discount, price, stock } = product
 
     return (
         <div className='relative flex w-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md'>
