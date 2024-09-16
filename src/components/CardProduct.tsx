@@ -3,16 +3,20 @@ import { calculateDiscountedPrice, isOutOfStock } from '@/utils/productUtils'
 import { cn } from '@/utils/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useCallback } from 'react'
 
 interface Props {
     product: Product
 }
 
 
+
 const CardProduct = ({ product }: Props) => {
 
+
     const { name, image, description, discount, price, stock } = product
+    const discountedPrice = useCallback(()=>calculateDiscountedPrice(price, discount),[price,discount])
+    const stockAvailabity = useCallback(()=>isOutOfStock(stock),[stock])
 
     return (
         <div className='relative flex w-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md'>
@@ -23,7 +27,7 @@ const CardProduct = ({ product }: Props) => {
                         {discount}% OFF
                     </span>
                 )}
-                {isOutOfStock(stock) && (
+                {stockAvailabity() && (
                     <span className='absolute top-0 left-0 m-2 rounded-full bg-red-500 px-2 text-center text-sm font-medium text-white'>Agotado</span>
                 )}
             </Link>
@@ -34,7 +38,7 @@ const CardProduct = ({ product }: Props) => {
                     <div className="mt-2 mb-5 flex items-center justify-between">
                         <p className='space-x-1'>
                             <span className="text-3xl font-bold text-slate-900">
-                                {stock > 0 ? `$${calculateDiscountedPrice(price, discount)}` : ""}
+                                {stock > 0 ? `$${discountedPrice()}` : ""}
                             </span>
                             <span className="text-sm text-slate-900 line-through">
                                 {stock > 0 && discount > 0 ? `$${price.toFixed(2)}` : ""}
