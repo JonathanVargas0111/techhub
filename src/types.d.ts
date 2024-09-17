@@ -23,4 +23,5 @@ export type Menu = {
     image: string;
     price: number;
     quantity: number;
+    description: string;
   };

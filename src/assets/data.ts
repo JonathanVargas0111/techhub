@@ -169,20 +169,26 @@ export const menu: Menu[] = [
         "https://img.freepik.com/foto-gratis/vista-frontal-smartphone-iphone-14-pro-negro_125540-2475.jpg?w=2000",
       price: 1299.99,
       quantity: 1,
+      description:
+        "El iPhone 14 Pro con pantalla OLED y triple cámara. Potencia de última generación.",
     },
     {
       name: "AirPods Pro",
       image:
         "https://img.freepik.com/foto-gratis/auriculares-bluetooth-sobre-fondo-blanco_125540-3073.jpg?w=2000",
       price: 199.99,
-      quantity: 2,
-    },
+      quantity: 1,
+      description:
+      "Auriculares inalámbricos con cancelación activa de ruido y calidad de sonido superior.",
+  },
     {
       name: "GoPro Hero 10",
       image:
         "https://img.freepik.com/foto-gratis/gopro-camara-accion-compacta-nueva_125540-3554.jpg?w=2000",
       price: 499.99,
       quantity: 1,
-    },
+      description:
+      "Cámara de acción de alta resolución, resistente al agua y con estabilización HyperSmooth.",
+  },
   ];
   
